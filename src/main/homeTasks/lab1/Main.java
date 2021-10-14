@@ -4,16 +4,19 @@ import main.homeTasks.lab1.strategies.*;
 
 class Main {
 
-    private static StrategyFly flying = new StrategyFly();
-    private static StrategyRideAHorse riding = new StrategyRideAHorse();
-    private static StrategyWalk walking = new StrategyWalk();
+    private static StrategyFly balloon = new StrategyFly();
+    private static StrategyRideAHorse horse = new StrategyRideAHorse();
+    private static StrategyWalk legs = new StrategyWalk();
 
     public static void main(String[] args) {
-        Hero hero = new Hero(walking);
+        Hero hero = new Hero();
         hero.move();
-        hero.changeMovingStrategy(riding);
+
+        hero.changeMovingStrategy(horse);
         hero.move();
-        hero.changeMovingStrategy(flying);
+
+        hero.changeMovingStrategy(balloon);
         hero.move();
+
     }
 }

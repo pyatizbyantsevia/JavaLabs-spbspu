@@ -1,5 +1,6 @@
 package main.homeTasks.lab1.strategies;
 
 public abstract class MoveStrategy {
-    public abstract void move();
+    public abstract int move();
+    public abstract String heroCondition();
 }
