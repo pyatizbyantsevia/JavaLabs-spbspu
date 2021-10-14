@@ -1,8 +1,23 @@
 package main.homeTasks.lab1;
 
-public class Main {
+import main.homeTasks.lab1.strategies.StrategyFly;
+import main.homeTasks.lab1.strategies.StrategyRideAHorse;
+import main.homeTasks.lab1.strategies.StrategyWalk;
+
+class Main {
+
+    private static StrategyFly flying = new StrategyFly();
+    private static StrategyRideAHorse riding = new StrategyRideAHorse();
+    private static StrategyWalk walking = new StrategyWalk();
 
     public static void main(String[] args) {
-        System.out.println(" ");
+        StrategyFly sf = new StrategyFly();
+
+        Hero hero = new Hero(flying);
+        hero.move();
+        hero.changeMovingStrategy(riding);
+        hero.move();
+        hero.changeMovingStrategy(walking);
+        hero.move();
     }
 }
