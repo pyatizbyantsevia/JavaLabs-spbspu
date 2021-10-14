@@ -9,13 +9,11 @@ class Main {
     private static StrategyWalk walking = new StrategyWalk();
 
     public static void main(String[] args) {
-        StrategyFly sf = new StrategyFly();
-
-        Hero hero = new Hero(flying);
+        Hero hero = new Hero(walking);
         hero.move();
         hero.changeMovingStrategy(riding);
         hero.move();
-        hero.changeMovingStrategy(walking);
+        hero.changeMovingStrategy(flying);
         hero.move();
     }
 }
