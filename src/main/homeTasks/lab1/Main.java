@@ -1,8 +1,6 @@
 package main.homeTasks.lab1;
 
-import main.homeTasks.lab1.strategies.StrategyFly;
-import main.homeTasks.lab1.strategies.StrategyRideAHorse;
-import main.homeTasks.lab1.strategies.StrategyWalk;
+import main.homeTasks.lab1.strategies.*;
 
 class Main {
 
