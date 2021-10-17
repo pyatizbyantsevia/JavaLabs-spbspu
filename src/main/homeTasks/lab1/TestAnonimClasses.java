@@ -1,13 +1,14 @@
 // Это второй вариант решения задачи
 // При выборе этого варианта классы StrategyFly, StrategyRideAHorse, StrategyWalk можно удалить
 
+// «Применяйте анонимные классы, если вам нужен локальный класс для одноразового использования» - документация Oracle.
 package main.homeTasks.lab1;
 
 import main.homeTasks.lab1.strategies.MoveStrategy;
 
 public class TestAnonimClasses {
     public static void main(String[] args) {
-        
+
         // Если сделать это через анонимные классы, будет ли это паттерном проектирования? (на первый взгляд - да)
 
         MoveStrategy walk = new MoveStrategy() {
