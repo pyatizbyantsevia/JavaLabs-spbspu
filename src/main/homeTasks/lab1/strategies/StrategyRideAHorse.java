@@ -1,6 +1,6 @@
 package main.homeTasks.lab1.strategies;
 
-public class StrategyRideAHorse extends MoveStrategy {
+public class StrategyRideAHorse implements MoveStrategy {
 
     @Override
     public int move() {
