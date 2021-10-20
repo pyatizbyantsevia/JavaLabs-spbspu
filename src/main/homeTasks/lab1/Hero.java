@@ -4,12 +4,13 @@ import main.homeTasks.lab1.strategies.*;
 
 public class Hero {
 
-    private MoveStrategy moveStrategy;
+    private static MoveStrategy moveStrategy;
+    private int currentLocation;
     {
+        currentLocation = 0;
         moveStrategy = new StrategyWalk();
         System.out.println(moveStrategy.heroCondition());
     }
-    private int currentLocation;
 
     void changeMovingStrategy(MoveStrategy strategy) {
         moveStrategy = strategy;
