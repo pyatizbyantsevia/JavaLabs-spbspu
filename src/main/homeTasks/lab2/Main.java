@@ -15,7 +15,7 @@ public class Main {
         List<String> list = readUsingFiles("/home/ilyait/JavaProjects/Global/JavaLabs-spbspu/src/main/homeTasks/lab2/temp.txt");
         int N = Integer.valueOf(list.get(0));
 
-        int[][] matrix = {{1,2,3,4}, {1,2,3,2}, {1,2,3,8}, {1,2,3,2}};
+        int[][] matrix = {{1,4,3,4}, {6,2,3,2}, {8,2,3,8}, {1,2,3,2}};
 //        for (int i = 0; i < N; i++) {
 //            for (int j = 0; j < N; j++) {
 //                matrix[i][j] = (int) (Math.random() * N);;
@@ -26,7 +26,7 @@ public class Main {
         int[][]rotatedMatrix = rotateMatrix(matrix);
         printMatrix(rotatedMatrix, "output1.txt");
 
-        int[][]devidedMatrix = divideMatrix(rotatedMatrix);
+        double[][]devidedMatrix = divideMatrix(rotatedMatrix, 1);
         printMatrix(devidedMatrix, "output2.txt");
 ;
     }
@@ -70,6 +70,18 @@ public class Main {
         writer.close();
     }
 
+    public static void printMatrix(double [][] src, String fileName) throws IOException {
+        int N = src.length;
+        FileWriter writer = new FileWriter(fileName, false);
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < N; j++) {
+                writer.write(String.valueOf(src[i][j]) + ' ');
+            }
+            writer.write('\n');
+        }
+        writer.close();
+    }
+
     public static int[][] divideMatrix(int [][] src) {
         int N = src.length;
         if (N == 0 || N == 1) {
@@ -85,6 +97,24 @@ public class Main {
                     temp[i][j] = src[i][j] / src[i][j-1];
                 } else {
                     temp[i][j] = src[i][j] / (src[i][j-1]+ src[i][j+1]);
+                }
+            }
+        }
+        return temp;
+    }
+
+    public static double[][] divideMatrix(int [][] src, int x) {
+        int N = src.length;
+        double[][] temp = new double[N][N];
+
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < N; j++) {
+                if (j == 0) {
+                    temp[i][j] = (double) src[i][j] / src[i][j+1];
+                } else if(j == (N - 1)) {
+                    temp[i][j] = (double) src[i][j] / src[i][j-1];
+                } else {
+                    temp[i][j] = (double) src[i][j] / (src[i][j-1]+ src[i][j+1]);
                 }
             }
         }
