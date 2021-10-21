@@ -37,7 +37,6 @@ public class Matrix {
         int N = matrix.length;
         ArrayList fullMatrix = new ArrayList();
         double[][] temp = new double[N][N];
-        DecimalFormat decimalFormat = new DecimalFormat( "#.###" );
 
         for (int i = (N - 1); i >= 0; i--) {
             for (int j = 0; j < N; j++) {
