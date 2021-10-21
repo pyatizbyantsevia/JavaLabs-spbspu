@@ -15,9 +15,10 @@ public class Main {
 
         Matrix matrix = new Matrix(N);
         matrix.printMatrix("output.txt");
-        matrix.rotateMatrix();
-        matrix.printMatrix("output1.txt");
-
+        for (int i = 0; i < 3; i++) {
+            matrix.rotateAndDivideMatrix();
+            matrix.printMatrix("output.txt");
+        }
     }
 
     private static List<String> readUsingFiles(String fileName) throws IOException {
