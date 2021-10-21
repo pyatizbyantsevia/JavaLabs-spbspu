@@ -23,7 +23,6 @@ public class Main {
 
     private static List<String> readUsingFiles(String fileName) throws IOException {
         Path path = Paths.get(fileName);
-        byte[] bytes = Files.readAllBytes(path);
         List<String> allLines = Files.readAllLines(path, StandardCharsets.UTF_8);
         return allLines;
     }

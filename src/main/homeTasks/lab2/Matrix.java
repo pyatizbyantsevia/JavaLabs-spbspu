@@ -57,15 +57,31 @@ public class Matrix {
     private void divideMatrix() {
         int N = matrix.length;
         double[][] temp = new double[N][N];
+        double denominator;
 
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < N; j++) {
                 if (j == 0) {
-                    temp[i][j] = matrix[i][j] / matrix[i][j+1];
+                    denominator = matrix[i][j+1];
+                    if (denominator == 0.0) {
+                        temp[i][j] = 0;
+                        continue;
+                    }
+                    temp[i][j] = matrix[i][j] / denominator;
                 } else if(j == (N - 1)) {
-                    temp[i][j] = matrix[i][j] / matrix[i][j-1];
+                    denominator = matrix[i][j-1];
+                    if (denominator == 0.0) {
+                        temp[i][j] = 0;
+                        continue;
+                    }
+                    temp[i][j] = matrix[i][j] / denominator;
                 } else {
-                    temp[i][j] = matrix[i][j] / (matrix[i][j-1]+ matrix[i][j+1]);
+                    denominator = (matrix[i][j-1] + matrix[i][j+1]);
+                    if (denominator == 0.0) {
+                        temp[i][j] = 0;
+                        continue;
+                    }
+                    temp[i][j] = matrix[i][j] / denominator;
                 }
             }
         }
