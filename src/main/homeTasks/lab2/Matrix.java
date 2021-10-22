@@ -8,7 +8,7 @@ import java.util.Random;
 
 public class Matrix {
 
-    private double[][] matrix;// = {{1,4,3,4}, {6,2,3,2}, {8,2,3,8}, {1,2,3,2}};
+    private double[][] matrix;
 
     public Matrix(int size) {
         Random rnd = new Random(System.currentTimeMillis());
@@ -29,7 +29,7 @@ public class Matrix {
             }
             writer.write('\n');
         }
-        writer.write("\n--------\n");
+        writer.write("\n---\n");
         writer.close();
     }
 
@@ -40,8 +40,7 @@ public class Matrix {
 
         for (int i = (N - 1); i >= 0; i--) {
             for (int j = 0; j < N; j++) {
-                double x = matrix[j][i];
-                fullMatrix.add(x);
+                fullMatrix.add(matrix[j][i]);
             }
         }
         for (int i = 0; i < N; i++) {
@@ -59,29 +58,29 @@ public class Matrix {
         double[][] temp = new double[N][N];
         double denominator;
 
-        for (int i = 0; i < N; i++) {
+        for (int i = 0; i < N; i++) { //must reworked for exceptions
             for (int j = 0; j < N; j++) {
                 if (j == 0) {
                     denominator = matrix[i][j+1];
                     if (denominator == 0.0) {
-                        temp[i][j] = 0;
+                        temp[i][j] = 10;
                         continue;
                     }
-                    temp[i][j] = matrix[i][j] / denominator;
+                    temp[i][j] = Utils.roundingDouble(matrix[i][j] / denominator);
                 } else if(j == (N - 1)) {
                     denominator = matrix[i][j-1];
                     if (denominator == 0.0) {
-                        temp[i][j] = 0;
+                        temp[i][j] = 10;
                         continue;
                     }
-                    temp[i][j] = matrix[i][j] / denominator;
+                    temp[i][j] = Utils.roundingDouble(matrix[i][j] / denominator);
                 } else {
                     denominator = (matrix[i][j-1] + matrix[i][j+1]);
                     if (denominator == 0.0) {
-                        temp[i][j] = 0;
+                        temp[i][j] = 10;
                         continue;
                     }
-                    temp[i][j] = matrix[i][j] / denominator;
+                    temp[i][j] = Utils.roundingDouble(matrix[i][j] / denominator);
                 }
             }
         }
