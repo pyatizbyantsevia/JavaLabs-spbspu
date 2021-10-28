@@ -58,12 +58,12 @@ public class Matrix {
         double[][] temp = new double[N][N];
         double denominator;
 
-        for (int i = 0; i < N; i++) { //must reworked for exceptions
+        for (int i = 0; i < N; i++) { //must rework for exceptions
             for (int j = 0; j < N; j++) {
                 if (j == 0) {
                     denominator = matrix[i][j+1];
                     if (denominator == 0.0) {
-                        temp[i][j] = 10;
+                        temp[i][j] = 10; //throw (?)
                         continue;
                     }
                     temp[i][j] = Utils.roundingDouble(matrix[i][j] / denominator);
