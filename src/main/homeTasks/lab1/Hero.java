@@ -4,7 +4,7 @@ import main.homeTasks.lab1.strategies.*;
 
 public class Hero {
 
-    private static MoveStrategy moveStrategy;
+    private MoveStrategy moveStrategy;
     private int currentLocation;
     {
         currentLocation = 0;
