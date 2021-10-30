@@ -1,6 +1,6 @@
 package main.homeTasks.lab2;
 
-import main.homeTasks.lab2.Exceptions.DivideNull;
+import main.homeTasks.lab2.Exceptions.DivideNullException;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -22,7 +22,7 @@ public class Main {
                 matrix.rotateAndDivideMatrix();
                 matrix.printMatrix("output.txt");
             }
-        } catch (DivideNull | IOException err) {
+        } catch (DivideNullException | IOException err) {
             System.err.println("чё то не так");
         }
     }

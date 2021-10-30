@@ -1,6 +1,6 @@
 package main.homeTasks.lab2;
 
-import main.homeTasks.lab2.Exceptions.DivideNull;
+import main.homeTasks.lab2.Exceptions.DivideNullException;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -34,7 +34,7 @@ public class Matrix {
         writer.close();
     }
 
-    public void rotateAndDivideMatrix() throws DivideNull {
+    public void rotateAndDivideMatrix() throws DivideNullException {
         int N = matrix.length;
         ArrayList fullMatrix = new ArrayList();
         double[][] temp = new double[N][N];
@@ -54,7 +54,7 @@ public class Matrix {
         this.divideMatrix();
     }
 
-    private void divideMatrix() throws DivideNull {
+    private void divideMatrix() throws DivideNullException {
         int N = matrix.length;
         double[][] temp = new double[N][N];
         double denominator;
@@ -64,19 +64,19 @@ public class Matrix {
                 if (j == 0) {
                     denominator = matrix[i][j+1];
                     if (denominator == 0.0) {
-                        throw new DivideNull();
+                        throw new DivideNullException();
                     }
                     temp[i][j] = Utils.roundingDouble(matrix[i][j] / denominator);
                 } else if(j == (N - 1)) {
                     denominator = matrix[i][j-1];
                     if (denominator == 0.0) {
-                        throw new DivideNull();
+                        throw new DivideNullException();
                     }
                     temp[i][j] = Utils.roundingDouble(matrix[i][j] / denominator);
                 } else {
                     denominator = (matrix[i][j-1] + matrix[i][j+1]);
                     if (denominator == 0.0) {
-                        throw new DivideNull();
+                        throw new DivideNullException();
                     }
                     temp[i][j] = Utils.roundingDouble(matrix[i][j] / denominator);
                 }
