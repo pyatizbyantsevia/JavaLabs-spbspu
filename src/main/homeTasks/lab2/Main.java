@@ -1,5 +1,7 @@
 package main.homeTasks.lab2;
 
+import main.homeTasks.lab2.Exceptions.DivideNull;
+
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -8,16 +10,20 @@ import java.nio.file.Paths;
 import java.util.List;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
 
-        List<String> list = readUsingFiles("/home/ilyait/JavaProjects/Global/JavaLabs-spbspu/src/main/homeTasks/lab2/temp.txt");
-        int N = Integer.valueOf(list.get(0));
+        try {
+            List<String> list = readUsingFiles("/home/ilyait/JavaProjects/Global/JavaLabs-spbspu/src/main/homeTasks/lab2/temp.txt");
+            int N = Integer.valueOf(list.get(0));
 
-        Matrix matrix = new Matrix(N);
-        matrix.printMatrix("output.txt");
-        for (int i = 0; i < 3; i++) {
-            matrix.rotateAndDivideMatrix();
+            Matrix matrix = new Matrix(N);
             matrix.printMatrix("output.txt");
+            for (int i = 0; i < 3; i++) {
+                matrix.rotateAndDivideMatrix();
+                matrix.printMatrix("output.txt");
+            }
+        } catch (DivideNull | IOException err) {
+            System.err.println("чё то не так");
         }
     }
 

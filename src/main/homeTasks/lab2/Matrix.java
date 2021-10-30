@@ -1,5 +1,7 @@
 package main.homeTasks.lab2;
 
+import main.homeTasks.lab2.Exceptions.DivideNull;
+
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -32,7 +34,7 @@ public class Matrix {
         writer.close();
     }
 
-    public void rotateAndDivideMatrix() {
+    public void rotateAndDivideMatrix() throws DivideNull {
         int N = matrix.length;
         ArrayList fullMatrix = new ArrayList();
         double[][] temp = new double[N][N];
@@ -52,7 +54,7 @@ public class Matrix {
         this.divideMatrix();
     }
 
-    private void divideMatrix() {
+    private void divideMatrix() throws DivideNull {
         int N = matrix.length;
         double[][] temp = new double[N][N];
         double denominator;
@@ -62,22 +64,19 @@ public class Matrix {
                 if (j == 0) {
                     denominator = matrix[i][j+1];
                     if (denominator == 0.0) {
-                        temp[i][j] = 10; //throw (?)
-                        continue;
+                        throw new DivideNull();
                     }
                     temp[i][j] = Utils.roundingDouble(matrix[i][j] / denominator);
                 } else if(j == (N - 1)) {
                     denominator = matrix[i][j-1];
                     if (denominator == 0.0) {
-                        temp[i][j] = 10;
-                        continue;
+                        throw new DivideNull();
                     }
                     temp[i][j] = Utils.roundingDouble(matrix[i][j] / denominator);
                 } else {
                     denominator = (matrix[i][j-1] + matrix[i][j+1]);
                     if (denominator == 0.0) {
-                        temp[i][j] = 10;
-                        continue;
+                        throw new DivideNull();
                     }
                     temp[i][j] = Utils.roundingDouble(matrix[i][j] / denominator);
                 }
