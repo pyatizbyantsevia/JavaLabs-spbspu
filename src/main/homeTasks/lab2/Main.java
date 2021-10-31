@@ -1,7 +1,5 @@
 package main.homeTasks.lab2;
 
-import main.homeTasks.lab2.Exceptions.DivideNullException;
-
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -13,8 +11,8 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
 
-        char temp = (char) readFile("/home/ilyait/JavaProjects/Global/JavaLabs-spbspu/src/main/homeTasks/lab2/temp.txt");
-        int N = temp;
+        byte[] temp = readFile("/home/ilyait/JavaProjects/Global/JavaLabs-spbspu/src/main/homeTasks/lab2/temp.txt");
+        int N = temp[0];
         System.out.println(N);
 //        try {
 //            Matrix matrix = new Matrix(N);
@@ -28,12 +26,12 @@ public class Main {
 //        }
     }
 
-    private static int readFile(String path) {
-        try(FileInputStream fileInputStream = new FileInputStream(path)){
-            return fileInputStream.read();
+    private static byte[] readFile(String path) {
+        try (FileInputStream fileInputStream = new FileInputStream(path)){
+            return fileInputStream.readNBytes(1);
         }catch (IOException err){
             err.printStackTrace();
-            return -1;
+            return null;
         }
     }
     private static List<String> readUsingFiles(String fileName) throws IOException {
