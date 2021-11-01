@@ -1,6 +1,7 @@
 package main.homeTasks.lab2;
 
 import main.homeTasks.lab2.Exceptions.DivideNullException;
+import main.homeTasks.lab2.Exceptions.MatrixSizeOverflow;
 
 import java.io.FileInputStream;
 import java.io.FileWriter;
@@ -25,7 +26,10 @@ public class Matrix {
         }
     }
 
-    public Matrix(int size) {
+    public Matrix(int size) throws MatrixSizeOverflow {
+        if (size > 1000000) {
+            throw new MatrixSizeOverflow();
+        }
         Random rnd = new Random(System.currentTimeMillis());
         matrix = new double[size][size];
         for (int i = 0; i < size; i++) {
@@ -44,7 +48,7 @@ public class Matrix {
             }
             writer.write('\n');
         }
-        writer.write("\n---\n");
+        writer.write("\n-------------\n");
         writer.close();
     }
 
