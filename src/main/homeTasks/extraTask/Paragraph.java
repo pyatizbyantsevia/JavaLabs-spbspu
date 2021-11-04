@@ -1,8 +1,10 @@
 package main.homeTasks.extraTask;
 
+import main.homeTasks.extraTask.markdown.MarkDown;
+
 import java.util.List;
 
-public class Paragraph implements MarkDown{
+public class Paragraph implements MarkDown {
 
     private List<MarkDown> list;
 
@@ -16,10 +18,5 @@ public class Paragraph implements MarkDown{
             stringBuilder.append(list.get(i).getString());
         }
         System.out.println(stringBuilder);
-    }
-
-    @Override
-    public String getString() {
-        return null;
     }
 }

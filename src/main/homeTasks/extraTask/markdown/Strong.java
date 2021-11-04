@@ -1,13 +1,13 @@
-package main.homeTasks.extraTask;
+package main.homeTasks.extraTask.markdown;
 
 import java.util.List;
 
-public class Strong implements MarkDown{
+public class Strong implements MarkDown {
 
-    public String strong;
-    public List<MarkDown> list;
+    private String strong;
+    private List<MarkDown> list;
 
-    Strong(List src){
+    public Strong(List src){
         list = src;
         this.toMarkdown(new StringBuilder());
     }
