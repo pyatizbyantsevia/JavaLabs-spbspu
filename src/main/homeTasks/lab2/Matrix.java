@@ -18,7 +18,7 @@ public class Matrix {
     private static Logger logger;
     static
     {
-        try(FileInputStream fileInputStream = new FileInputStream("/home/ilyait/JavaProjects/Global/JavaLabs-spbspu/src/main/homeTasks/lab2/resources/log.config")){
+        try(FileInputStream fileInputStream = new FileInputStream("C:\\Users\\ilya_\\Documents\\Projects\\Java\\JavaLabs-spbspu\\src\\main\\homeTasks\\lab2\\resources\\log.config")){
             LogManager.getLogManager().readConfiguration(fileInputStream);
             logger = Logger.getLogger(Matrix.class.getName());
         } catch (IOException e) {

@@ -13,7 +13,7 @@ import java.util.List;
 
 public class Main {
 
-    final static String inputFilePath = "/home/ilyait/JavaProjects/Global/JavaLabs-spbspu/src/main/homeTasks/lab2/temp.txt";
+    final static String inputFilePath = "C:\\Users\\ilya_\\Documents\\Projects\\Java\\JavaLabs-spbspu\\src\\main\\homeTasks\\lab2\\temp.txt";
 
     public static void main(String[] args) {
         try {
