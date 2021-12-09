@@ -17,8 +17,8 @@ public class Main {
         queue.add(new Mammalia());
         queue.print();
         System.out.println("---------");
-        Queue<Animal> zalupa = queue.produce(queue);
-        zalupa.print();
+        Queue<Animal> temp = queue.produce(queue);
+        temp.print();
 
     }
 }

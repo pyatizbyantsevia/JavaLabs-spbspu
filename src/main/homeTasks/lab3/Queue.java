@@ -37,7 +37,7 @@ public class Queue<T> {
         Queue<T> second = new Queue<>();
 
         for (int i = 0; i < src.size(); i++) {
-            if(first.add(src.get(i))) {
+            if(true) { //first.add(src.get(i))
 
             }
 
