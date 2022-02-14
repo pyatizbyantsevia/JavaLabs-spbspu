@@ -10,7 +10,7 @@ import main.homeTasks.lab3.animal.vertebrata.mammalia.primates.homo.Homo;
 public class Main {
     public static void main(String[] args) {
 
-        Queue<Animal> queue = new Queue();
+        Queue<Animal> queue = new Queue<>();
         queue.add(new Cat());
         queue.add(new Primates());
         queue.add(new Animal());
