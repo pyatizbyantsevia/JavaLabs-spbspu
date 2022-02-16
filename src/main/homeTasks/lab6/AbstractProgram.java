@@ -21,20 +21,19 @@ class AbstractProgram implements Runnable {
 
     @Override
     public void run() {
-        System.out.println("I am AbstractProgram and I'm working");
+        System.out.println("AbstractProgram is working");
         while (true) {
             Thread daemon = new Thread() {
               @Override
               public void run()
               {
-                  System.out.println("I am daemon thread and I'm working");
-
-                  synchronized (mutex) {
-                      abstractProgCondition = randomCondition();
-                  }
+                  System.out.println("Daemon thread is working");
+                  abstractProgCondition = randomCondition();
+                  System.out.println(abstractProgCondition);
               }
             };
             daemon.setDaemon(true);
+            daemon.start();
             Utils.sleep(3000);
         }
     }
