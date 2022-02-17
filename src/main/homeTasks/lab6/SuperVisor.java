@@ -8,17 +8,17 @@ public class SuperVisor implements Runnable{
 
     @Override
     public void run() {
-        System.out.println(ANSI_RED + "SuperVisor: started" + ANSI_RESET);
+        System.out.println(ANSI_BLUE + "SuperVisor: started" + ANSI_RESET);
         abstractProgram.start();
         while (!AbstractProgram.interruptFlag) {
             synchronized (AbstractProgram.mutex) {
                 try {
-                    System.out.println(ANSI_RED + "SuperVisor: wait" + ANSI_RESET);
+                    System.out.println(ANSI_BLUE + "SuperVisor: wait" + ANSI_RESET);
                     AbstractProgram.mutex.wait();
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                System.out.println(ANSI_RED + "SuperVisor: notified" + ANSI_RESET);
+                System.out.println(ANSI_BLUE + "SuperVisor: notified" + ANSI_RESET);
             }
             if (AbstractProgram.abstractProgCondition == AbstractProgram.Conditions.UNKNOWN) {
                 restartProgram();
@@ -27,19 +27,19 @@ public class SuperVisor implements Runnable{
             } else if (AbstractProgram.abstractProgCondition == AbstractProgram.Conditions.FATAL_ERROR) {
                 stopProgram();
             } else {
-                System.out.println(ANSI_RED + "SuperVisor: abstractProgram is OK" + ANSI_RESET);
+                System.out.println(ANSI_BLUE + "SuperVisor: abstractProgram is OK" + ANSI_RESET);
             }
         }
     }
 
     private void restartProgram() {
         AbstractProgram.abstractProgCondition = AbstractProgram.Conditions.RUNNING;
-        System.out.println(ANSI_RED + "SuperVisor: restart program" + ANSI_RESET);
+        System.out.println(ANSI_BLUE + "SuperVisor: restart program" + ANSI_RESET);
     }
 
     private void stopProgram() {
         AbstractProgram.interruptFlag = true;
-        System.out.println(ANSI_RED + "SuperVisor: stop program" + ANSI_RESET);
+        System.out.println(ANSI_BLUE + "SuperVisor: stop program" + ANSI_RESET);
     }
 
 
