@@ -51,4 +51,3 @@ public class Tasks {
     }
 
 }
-//if empty if NULL
