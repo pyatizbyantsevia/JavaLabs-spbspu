@@ -8,13 +8,15 @@ import java.util.concurrent.LinkedBlockingQueue;
 
 class Main {
     public static void main(String[] args) {
+
         Random random = new Random();
         BlockingQueue<String> queue = new LinkedBlockingQueue<>();
         ExecutorService writeService = Executors.newFixedThreadPool(Integer.parseInt(args[0]), new ProducerNameThreadFactory());
         ExecutorService readService = Executors.newFixedThreadPool(Integer.parseInt(args[0]), new ConsumerNameThreadFactory());
+
         for (int i = 0; i < 10; i++) {
             writeService.execute(() -> {
-                String message = "<message_" + random.nextInt(500) + "> from " + Thread.currentThread().getName();
+                String message = "Message= " + random.nextInt(500) + " from " + Thread.currentThread().getName();
                 try {
                     queue.put(message);
                 } catch (InterruptedException e) {

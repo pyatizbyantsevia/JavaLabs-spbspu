@@ -18,7 +18,7 @@ public class Tasks {
                 .map(str -> str = "_new_" + str)
                 .toList();
     }
-
+//remake
     public static List<Integer> task3(List<Integer> list) {
         return list.stream()
                 .filter(n -> Collections.frequency(list, n) == 1)

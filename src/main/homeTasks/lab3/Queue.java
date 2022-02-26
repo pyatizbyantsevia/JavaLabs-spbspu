@@ -30,7 +30,6 @@ public class Queue<T> {
         queue = list;
     }
 
-
     public void add(T src) {
         queue.add(src);
     }
@@ -41,8 +40,7 @@ public class Queue<T> {
 
     public static Queue<? extends Vertebrata> produce(int n) {
         Vertebrata[] vertebratas = {
-                new Mammalia(), new Cat(), new Assasin(), new UltraAssasin(),
-                new Primates(), new Homo(), new Sapiens()
+                new Mammalia(), new Cat(), new Assasin(), new UltraAssasin(), new Primates(), new Homo(), new Sapiens()
         };
         Queue<Vertebrata> producer = new Queue<>(n);
         for (int i = 0; i < n; i++) {
