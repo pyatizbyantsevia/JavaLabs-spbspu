@@ -1,7 +1,6 @@
 package main.homeTasks.lab5;
 
 import java.util.*;
-import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class Tasks {
@@ -15,7 +14,7 @@ public class Tasks {
     public static List<String> task2(List<String> list) {
         return list.stream()
                 .map(str -> str = str.toUpperCase())
-                .map(str -> str = "_new_" + str)
+                .map(str -> str = "new" + str)
                 .toList();
     }
 //remake

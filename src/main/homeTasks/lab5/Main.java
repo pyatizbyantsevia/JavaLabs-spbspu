@@ -6,13 +6,12 @@ public class Main {
 
     public static void main(String[] args) {
         System.out.println("Task 1");
-        List<Integer> list1 = new ArrayList<>();
+        List<Integer> list1 = List.of(2, 4, 6);
         System.out.println(Tasks.task1(list1));
 
         System.out.println("Task 2");
-        List<String> list2 = new ArrayList<>();
-        list2 = Tasks.task2(list2);
-        System.out.println(list2);
+        List<String> list2 = List.of("TeST", "TEST", "test");;
+        System.out.println(Tasks.task2(list2));
 
         System.out.println("Task 3");
         List<Integer> list3 = List.of(1, 2, 2, 3, 1);
